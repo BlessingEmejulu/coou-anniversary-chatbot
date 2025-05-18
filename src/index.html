@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COOU Anniversary ChatBot</title>
+  <link href="./assets/styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="header-icon">
+        <i data-lucide="message-square"></i>
+      </div>
+      <div>
+        <h1 class="header-title">COOU Anniversary ChatBot</h1>
+        <p class="header-subtitle">Celebrating Excellence & Innovation</p>
+      </div>
+      <div class="status-indicator">
+        <div class="status-dot"></div>
+        <span>Online</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Onboarding Container -->
+    <div class="onboarding-container" id="onboardingContainer">
+      <div class="onboarding-card">
+        <div class="onboarding-header">
+          <div class="onboarding-icon">
+            <i data-lucide="message-square"></i>
+          </div>
+          <h2 class="onboarding-title">Welcome to COOU Anniversary ChatBot</h2>
+          <p class="onboarding-subtitle">Your guide to the university's celebration</p>
+        </div>
+
+        <div class="onboarding-body">
+          <!-- Step 1: Features -->
+          <div class="onboarding-step active" id="step1">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i data-lucide="info"></i>
+              </div>
+              <div>
+                <h3 class="feature-title">Get Anniversary Information</h3>
+                <p class="feature-description">Learn about events, history, and highlights of COOU's anniversary
+                  celebration.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i data-lucide="calendar"></i>
+              </div>
+              <div>
+                <h3 class="feature-title">Event Schedule</h3>
+                <p class="feature-description">Get details about upcoming anniversary events, locations, and times.</p>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i data-lucide="history"></i>
+              </div>
+              <div>
+                <h3 class="feature-title">University History</h3>
+                <p class="feature-description">Discover the rich history and achievements of COOU over the years.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Personalization -->
+          <div class="onboarding-step" id="step2">
+            <div class="text-center mb-4">
+              <i data-lucide="award" class="mx-auto mb-4" style="width: 3rem; height: 3rem; color: #047857;"></i>
+              <h3 class="feature-title" style="font-size: 1.25rem;">Personalize Your Experience</h3>
+              <p class="feature-description">Let us know your name so we can provide a more personalized experience.</p>
+            </div>
+
+            <div class="name-input">
+              <label for="userName">Your Name (Optional)</label>
+              <input type="text" id="userName" placeholder="Enter your name">
+            </div>
+          </div>
+
+          <!-- Step 3: Ready -->
+          <div class="onboarding-step" id="step3">
+            <div class="text-center">
+              <i data-lucide="sparkles" class="mx-auto mb-4" style="width: 4rem; height: 4rem; color: #047857;"></i>
+              <h3 class="feature-title" style="font-size: 1.25rem;">You're All Set!</h3>
+              <p class="feature-description">Start chatting with our COOU Anniversary ChatBot to learn more about the
+                celebrations, events, and university history.</p>
+              <div class="suggestions-box">
+                <p class="suggestions-title">Try asking questions like:</p>
+                <ul class="suggestions-list">
+                  <li>• "What events are happening during the anniversary?"</li>
+                  <li>• "Tell me about COOU's history"</li>
+                  <li>• "When is the gala night?"</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Onboarding Footer -->
+          <div class="onboarding-footer">
+            <button class="skip-btn" id="skipBtn">Skip</button>
+            <button class="next-btn" id="nextBtn">
+              Next
+              <i data-lucide="chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Container -->
+    <div class="chat-container" id="chatContainer">
+      <div class="messages-container">
+        <div class="messages-wrapper" id="messagesWrapper">
+          <!-- Messages will be inserted here by JavaScript -->
+        </div>
+      </div>
+
+      <div class="input-container">
+        <div class="input-wrapper">
+          <div class="input-field">
+            <input type="text" id="messageInput" placeholder="Type your message...">
+            <button class="send-btn" id="sendBtn" disabled>
+              <i data-lucide="send"></i>
+            </button>
+          </div>
+          <p class="footer-text">
+            Built by
+            <a href="https://www.linkedin.com/in/blessing-emejulu-63850a248/" target="_blank">BlessingEmejulu</a>, Lead
+            Organizer
+            <a href="https://gdg.community.dev/gdg-on-campus-chukwuemeka-odumegwu-ojukwu-university-anambra-nigeria/"
+              target="_blank">GDGoC COOU</a> | © 2025
+          <div class="footer-icons">
+            <a href="https://web.facebook.com/blessing.emejulu.33/" target="_blank" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+            <a href="https://x.com/BlessedTechie" target="_blank" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+            <a href="https://linkedin.com/in/blessing-emejulu-63850a248/" target="_blank" aria-label="LinkedIn"><i
+                data-lucide="linkedin"></i></a>
+            <a href="https://github.com/BlessingEmejulu" target="_blank" aria-label="GitHub"><i data-lucide="github"></i></a>
+          </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="./scripts/main.js"></script>
+
+</body>
+
+</html>
