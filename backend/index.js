@@ -11,8 +11,7 @@ app.use(express.json());
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
-const contextData = JSON.parse(fs.readFileSync('./coou_anniversary_ai_model_data.txt', 'utf8'));
-const systemPrompt = contextData.systemPrompt;
+const systemPrompt = fs.readFileSync('coou_anniversary_ai_model_data.txt', 'utf8');
 
 app.post('/api/gemini', async (req, res) => {
   const userInput = req.body.userInput;
@@ -32,7 +31,7 @@ app.post('/api/gemini', async (req, res) => {
     });
     const data = await response.json();
     let geminiText = data.candidates?.[0]?.content?.parts?.[0]?.text || data.error?.message || "Sorry, I couldn't find an answer.";
-    geminiText = geminiText.replace(/\*/g, ''); // Remove all asterisks
+    geminiText = geminiText.replace(/\*/g, ''); 
     res.json({ text: geminiText });
   } catch (error) {
     res.status(500).json({ text: "Sorry, there was an error connecting to Gemini." });
