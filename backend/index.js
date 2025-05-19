@@ -1,5 +1,3 @@
-console.log('Backend started!');
-
 import express from 'express';
 import cors from 'cors';
 import fetch from 'node-fetch';
@@ -13,9 +11,8 @@ app.use(express.json());
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 app.post('/api/gemini', async (req, res) => {
-  console.log('Received request to /api/gemini'); // Add this line
   const userInput = req.body.userInput;
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
   const requestBody = {
     contents: [{ parts: [{ text: userInput }] }]
   };
@@ -27,11 +24,10 @@ app.post('/api/gemini', async (req, res) => {
       body: JSON.stringify(requestBody)
     });
     const data = await response.json();
-    console.log('Gemini API response:', data); // <-- Add this line
+    console.log('Gemini API response:', data); // <--- THIS IS IMPORTANT
     const geminiText = data.candidates?.[0]?.content?.parts?.[0]?.text || data.error?.message || "Sorry, I couldn't find an answer.";
     res.json({ text: geminiText });
   } catch (error) {
-    console.error('Gemini API error:', error); // <-- Add this line
     res.status(500).json({ text: "Sorry, there was an error connecting to Gemini." });
   }
 });
