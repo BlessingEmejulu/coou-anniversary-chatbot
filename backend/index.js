@@ -16,12 +16,17 @@ const systemPrompt = fs.readFileSync('coou_anniversary_ai_model_data.txt', 'utf8
 app.post('/api/gemini', async (req, res) => {
   const userInput = req.body.userInput;
   const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+  
   const requestBody = {
-    contents: [
-      { role: "user", parts: [{ text: systemPrompt }] }, // Add your context/instructions
-      { role: "user", parts: [{ text: userInput }] }     // Then the user's question
-    ]
-  };
+  contents: [
+    {
+      role: "user",
+      parts: [
+        { text: `${systemPrompt}\n\nUser question: ${userInput}` }
+      ]
+    }
+  ]
+};
 
   try {
     const response = await fetch(url, {
