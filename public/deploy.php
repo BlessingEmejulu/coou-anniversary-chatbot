@@ -1,7 +1,7 @@
 <?php
 include __DIR__ ."/../config.php";
 
-//security here
+//security here!!
 $secret = getenv('DEPLOY_SECRET'); // Match this in GitHub webhook settings
 
 $signature = $_SERVER['HTTP_X_HUB_SIGNATURE_256'] ?? '';
