@@ -13,6 +13,7 @@ const onboardingContainer = document.getElementById('onboardingContainer');
 const chatContainer = document.getElementById('chatContainer');
 const messagesWrapper = document.getElementById('messagesWrapper');
 const messageInput = document.getElementById('messageInput');
+const tokenInput = document.getElementById('tokenInput');
 const sendBtn = document.getElementById('sendBtn');
 const nextBtn = document.getElementById('nextBtn');
 const skipBtn = document.getElementById('skipBtn');
@@ -190,12 +191,11 @@ function hideTypingIndicator() {
 }
 
 async function generateBotResponse(userInput) {
-   console.log("Calling backend with:", userInput);
   try {
-    const response = await fetch('http://localhost:5050/api/gemini', {
+    const response = await fetch('/ask.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userInput })
+      body: JSON.stringify({ userInput, csrf_token: tokenInput.value })
     });
     const data = await response.json();
     addMessage({
@@ -203,6 +203,7 @@ async function generateBotResponse(userInput) {
       sender: 'bot'
     });
   } catch (error) {
+    console.log(error);
     addMessage({
       text: "Sorry, there was an error connecting to Gemini.",
       sender: 'bot'

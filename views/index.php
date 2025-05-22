@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -125,6 +131,8 @@
           <!-- Messages will be inserted here by JavaScript -->
         </div>
       </div>
+
+	  <input type="hidden" id="tokenInput" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
       <div class="input-container">
         <div class="input-wrapper">
